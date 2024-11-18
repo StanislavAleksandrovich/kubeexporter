@@ -19,4 +19,41 @@ Usage of ./kubeexporter:
 ```
 ```
 How to use
-kubectl apply -f single.yaml
+1. kubectl apply -f deployment.yaml
+2. kubectl get pods --all-namespaces
+
+you will get beolw pods
+cadvisor
+kube-state-metrics
+metrics-server
+
+3. kubectl get svc -A
+you will get CLUSTER-IP and PORT for
+cadvisor
+kube-state-metrics
+coredns
+
+4. vim /usr/local/bin/url.txt
+http://CLUSTER-IP:PORT cadvisor
+http://CLUSTER-IP:PORT kube-state
+http://CLUSTER-IP:PORT coredns
+
+5. vim /usr/local/bin/auth.txt
+username:password
+
+6. vim /etc/systemd/system/kubeexporter.service
+[Unit]
+Description=KubeExporter Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/kubeexporter -auth /usr/local/bin/auth.txt -port 8089 -url /usr/local/bin/url.txt -timeout 300 -enable-core-metrics=false
+Restart=always
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
+7. systemctl start kubeexporter
+```
