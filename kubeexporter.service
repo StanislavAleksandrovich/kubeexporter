@@ -3,7 +3,7 @@ Description=KubeExporter Service
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/kubeexporter -auth /usr/local/bin/auth.txt -port 8089 -url /usr/local/bin/url.txt -timeout 300 -enable-core-metrics=false
+ExecStart=/usr/local/bin/kubeexporter_amd64 -auth /usr/local/bin/auth.txt -port 8089 -url /usr/local/bin/url.txt -timeout 300 -enable-core-metrics=false
 Restart=always
 User=root
 Group=root
