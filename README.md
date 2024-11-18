@@ -17,4 +17,6 @@ Usage of ./kubeexporter:
   -version
     	Print version information and exit
 ```
-
+```
+How to use
+kubectl apply -f single.yaml
