@@ -1,3 +1,4 @@
+```
 Usage of ./kubeexporter:
   -auth string
     	Path to the auth file
@@ -15,5 +16,5 @@ Usage of ./kubeexporter:
     	Path to the URL file
   -version
     	Print version information and exit
-
+```
 
