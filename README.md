@@ -23,18 +23,15 @@ How to use
 2. kubectl get pods --all-namespaces
 
 you will get beolw pods
-cadvisor
 kube-state-metrics
 metrics-server
 
 3. kubectl get svc -A
 you will get CLUSTER-IP and PORT for
-cadvisor
 kube-state-metrics
 coredns
 
 4. vim /usr/local/bin/url.txt
-http://CLUSTER-IP:PORT cadvisor
 http://CLUSTER-IP:PORT kube-state
 http://CLUSTER-IP:PORT coredns
 
